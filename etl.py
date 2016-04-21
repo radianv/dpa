@@ -71,7 +71,7 @@ class AggregateUFOsByState(SparkSubmitTask):
         #return luigi.s3.S3Target('s3://itam-mcd/ufo/etl/aggregated')
         return luigi.s3.S3Target('{}/ufo/etl/aggregated/year={}/month={}/day={}'.format(self.bucket,
 									self.sighting_date.year,
-									self.sighting_date.month
+									self.sighting_date.month,
 									self.sighting_date.day))
 
 class Top10States(SparkSubmitTask)
