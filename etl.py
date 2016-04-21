@@ -82,7 +82,7 @@ class Top10States(SparkSubmitTask):
     def requires(self):
         return AggregateUFOsByState(sighting_date = self.sighting_date)#date=self.date
 
-   @property
+    @property
     def name(self):
         return 'Top_10_States'
 
