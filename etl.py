@@ -10,6 +10,15 @@ import logging
 logging.config.fileConfig('dpa_logging.conf')
 logger = logging.getLogger('dpa.pipeline.etl')
 
+
+try:
+    import psycopg2
+    import psycopg2.errorcodes
+    import psycopg2.extensions
+except ImportError:
+    logger.warning("Loading postgres module without psycopg2 installed. Will crash at runtime if postgres functionality is used.")
+
+
 import luigi
 from luigi import configuration, LocalTarget
 from luigi.s3 import S3Target, S3Client, S3FlagTarget, ReadableS3File
