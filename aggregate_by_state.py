@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print("Iniciando la tarea en spark")
 
     sqlCtx.read.format('com.databricks.spark.csv')\
-                               .options(header='true', inferSchema='true', delimiter='\t')\
+                               .options(header='true', inferSchema='true', delimiter=',')\
                                .load(sys.argv[1])
                                .registerTempTable('avistamientos')
     sqlCtx.sql("select State as estado, count(*) as avistamientos from avistamientos group by State")\
