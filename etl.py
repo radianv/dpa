@@ -85,7 +85,7 @@ class AggregateUFOsByState(SparkSubmitTask):
 
 class Top10States(SparkSubmitTask):
     #date = luigi.DateParameter()
-    sighting_date = luigi.DateParameter()
+    sighting_date = luigi.DateParameter(default=datetime.date.today())
 
 
     def requires(self):
