@@ -89,7 +89,7 @@ class Top10States(SparkSubmitTask):
 
 
     def requires(self):
-        return AggregateUFOsByState(sighting_date = self.sighting_date)#date=self.date
+        return AggregateUFOsByState(sighting_date=self.sighting_date)#date=self.date
 
     @property
     def name(self):
@@ -104,8 +104,8 @@ class Top10States(SparkSubmitTask):
 
     def output(self):
         return luigi.s3.S3Target('s3://itam-mcd/ufo/etl/top10/year={}/month={}'.format(
-            self.date.year,
-            self.date.month))
+            sighting_date.date.year,
+            sighting_date.date.month))
 
 class TopStatesToDatabase(luigi.postgres.CopyToTable):
     
