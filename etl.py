@@ -35,7 +35,7 @@ class AllTasks(luigi.WrapperTask):
     def requires(self):
         #yield test.HolaMundoTask()
         #yield test_spark.TestPySparkTask()
-        yield TopStatesToDatabase(date=self.sighting_date)
+        yield TopStatesToDatabase()
 
 class ReadUFOs(luigi.ExternalTask):
     def output(self):
