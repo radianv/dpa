@@ -104,8 +104,8 @@ class Top10States(SparkSubmitTask):
 
     def output(self):
         return luigi.s3.S3Target('s3://itam-mcd/ufo/etl/top10/year={}/month={}'.format(
-            sighting_date.date.year,
-            sighting_date.date.month))
+            self.sighting_date.date.year,
+            self.sighting_date.date.month))
 
 class TopStatesToDatabase(luigi.postgres.CopyToTable):
     
