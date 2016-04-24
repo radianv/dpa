@@ -39,7 +39,7 @@ class AllTasks(luigi.WrapperTask):
 
 class ReadUFOs(luigi.ExternalTask):
     def output(self):
-        return luigi.s3.S3Target('s3n://AKIAJPLQRXGJFPQVJPGQ:6Gn0ZSHgiljluuqs118Q3bH7zHJVnMpkxdY59SAO@itam-mcd/ufo/raw/')
+        return luigi.s3.S3Target('s3n://itam-mcd/ufo/raw/')
 
 class CleanUFODataSet(luigi.Task):
     pass
