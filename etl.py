@@ -47,6 +47,8 @@ class AllTasks(luigi.WrapperTask):
         yield TopStatesToDatabase()
 
 class ReadUFOs(luigi.ExternalTask):
+
+    bucket = configuration.get_config().get('etl','bucket')
     def output(self):
         return luigi.s3.S3Target('s3n://itam-mcd/ufo/raw/')
 
