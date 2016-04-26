@@ -32,6 +32,7 @@ if __name__ == "__main__":
                                .load(sys.argv[1])\
                                .registerTempTable('avistamientos')
     sqlCtx.sql("select State as estado, count(*) as avistamientos from avistamientos group by State")\
+	      .coalesce(1, false)\	
               .write.parquet(sys.argv[2],mode='overwrite')
 
     print ("Terminando la tarea de Spark")
